@@ -6,6 +6,8 @@
 // @description  Paste quick shortcut from Shikimori to AniTube.in.ua
 // @description:uk  Вставляє пряме посилання з Shikimori на AniTube.in.ua
 // @author       Alex Kozack
+// @homepage https://kozack.me
+// @source https://github.com/cawa-93/shikimori-to-anitube
 // @match        https://shikimori.one/animes/*
 // @icon         <$ICON$>
 // @grant         GM.xmlHttpRequest
