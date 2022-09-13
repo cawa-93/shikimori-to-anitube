@@ -2,7 +2,7 @@
 // @name         From Shikimori to AniTube.in.ua
 // @name:uk      З Shikimori до AniTube.in.ua
 // @namespace    shikimori
-// @version      0.1
+// @version      0.2
 // @description  Paste quick shortcut from Shikimori to AniTube.in.ua
 // @description:uk  Вставляє пряме посилання з Shikimori на AniTube.in.ua
 // @author       Alex Kozack
@@ -13,7 +13,7 @@
 // @connect anitube.in.ua
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
     /**
@@ -53,19 +53,29 @@
 
     /**
      *
+     * @return {string}
+     */
+    function getSearchUrl() {
+        return 'https://anitube.in.ua/index.php?do=search&subaction=search&from_page=0&story=' + getAnimeTitle()
+    }
+
+    /**
+     *
      * @param {{description: string, title: string, url: string}[]} results
      */
     function createSearchResultBox(results) {
-        const html = results.map(function(result) {
-            return '<p style="line-height: 1.2;margin-bottom: 1em;"><a class="watch-link" href="'+result.url+'">'+result.title+'</a><br><small>'+result.description+'</small></p>'
-        }).join('')
-        document.querySelector('.c-info-right').insertAdjacentHTML('beforeend', '<div class="block"><div class="subheadline">Перегляд на AniTube.in.ua</div><div class="block">'+html+'</div></div>')
+        const html = results.length
+            ? results.map(function (result) {
+                return '<p style="line-height: 1.2;margin-bottom: 1em;"><a class="watch-link" href="' + result.url + '">' + result.title + '</a><br><small>' + result.description + '</small></p>'
+            }).join('')
+            : 'Нічого не знайдено 🤷‍'
+        document.querySelector('.c-info-right').insertAdjacentHTML('beforeend', '<div class="block" style="margin-top: 30px;"><div class="subheadline"><a href="' + getSearchUrl() + '">AniTube.in.ua</a></div><div class="block">' + html + '</div></div>')
     }
 
 
     GM.xmlHttpRequest({
         method: 'GET',
-        url: 'https://anitube.in.ua/index.php?do=search&subaction=search&from_page=0&story='+getAnimeTitle(),
+        url: getSearchUrl(),
         fetch: true,
         onload: function (r) {
             createSearchResultBox(
