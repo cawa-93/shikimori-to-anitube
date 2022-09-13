@@ -1,4 +1,4 @@
-# shikimori-to-anitube
+# З Shikimori до AniTube.in.ua
 Скрипт для tampermonkey, що додає прямі посилання з shikimori.one на anitube.in.ua
 
 ![зображення](https://user-images.githubusercontent.com/1662812/189854835-7d4d1aec-0845-4f43-9d0b-9d8fbc758d1b.png)
