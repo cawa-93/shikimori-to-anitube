@@ -69,7 +69,13 @@
                 return '<p style="line-height: 1.2;margin-bottom: 1em;"><a class="watch-link" href="' + result.url + '">' + result.title + '</a><br><small>' + result.description + '</small></p>'
             }).join('')
             : 'Нічого не знайдено 🤷‍'
-        document.querySelector('.c-info-right').insertAdjacentHTML('beforeend', '<div class="block" style="margin-top: 30px;"><div class="subheadline"><a href="' + getSearchUrl() + '">AniTube.in.ua</a></div><div class="block">' + html + '</div></div>')
+
+        const subHeadLine = '<div class="subheadline"><a href="' + getSearchUrl() + '">AniTube.in.ua</a></div>'
+        const blockContent = '<div class="block">' + html + '</div>'
+        const block = '<div class="block" style="margin-top: 30px;">'+subHeadLine+blockContent+'</div>'
+        document
+            .querySelector('.c-info-right')
+            .insertAdjacentHTML('beforeend', block)
     }
 
 
