@@ -2,7 +2,7 @@
 // @name         From Shikimori to AniTube.in.ua
 // @name:uk      З Shikimori до AniTube.in.ua
 // @namespace    shikimori
-// @version      0.2
+// @version      0.3
 // @description  Paste quick shortcut from Shikimori to AniTube.in.ua
 // @description:uk  Вставляє пряме посилання з Shikimori на AniTube.in.ua
 // @author       Alex Kozack
